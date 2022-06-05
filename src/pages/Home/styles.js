@@ -20,7 +20,7 @@ export const Container = styled.div`
 
 export const Brand = styled.div`
   grid-area: brand;
-  display: flex;
+  display: flex;  
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_700};
@@ -46,13 +46,13 @@ export const Menu = styled.ul`
 
 export const Search = styled.div`
  grid-area:search;
- background-color: green;
+ padding:  6.4rem 6.4rem 0;
+
 
 `
 
 export const Content = styled.div`
  grid-area:content;
- background-color: pink;
 
 `
 
