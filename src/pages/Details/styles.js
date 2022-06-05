@@ -11,8 +11,9 @@ export const Container = styled.div`
   "content";
  >main{
    grid-area: content;
-   overflow-y: scroll;
+    width: 100%;
    padding: 6.4rem 0;
+   overflow-y:scroll hidden;
  }
 `;
 
