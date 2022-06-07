@@ -26,7 +26,9 @@ export function Home() {
       </Menu>
 
       <Search>
-        <Input placeholder="Pesquisar sobre o Titulo" icon={RiSearchLine} />
+        <Input 
+        placeholder="Pesquisar sobre o Titulo" 
+        icon={RiSearchLine} />
       </Search>
 
       <Content>
