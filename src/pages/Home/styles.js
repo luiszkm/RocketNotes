@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  padding-bottom: 2rem;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 25rem  auto;
   grid-template-rows: 10rem 13rem auto 6.4rem;
