@@ -9,8 +9,17 @@ export const Container = styled.div`
   grid-template-rows: 11rem auto;
   grid-template-areas: 
   "header"
-  "container";
-
+  "content";
+  > main{
+    grid-area: content;
+    overflow-y: auto;
+  }
+.tags{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: width;
+}
 
 `
 

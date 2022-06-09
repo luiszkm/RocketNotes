@@ -13,7 +13,8 @@ return (
 
     <button 
     type='button'
-    onClick={onClick}>
+    onClick={onClick}
+    className= { isNew?"button-add":"button-delete"}>
 
     {isNew ? <AiOutlinePlus />:<AiOutlineClose />}
 
