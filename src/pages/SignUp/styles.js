@@ -44,7 +44,7 @@ export const Form = styled.form`
   margin: 4.8rem 0;
 
  }
- > .backLogin{
+ > a{
   margin-top: 12rem;
   font-weight: 400;
   font-size: 1.6rem;

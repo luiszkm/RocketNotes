@@ -1,6 +1,7 @@
 import { Container, Form, Avatar } from "./styles"
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import { Link } from 'react-router-dom'
 
 import { AiOutlineMail, AiOutlineArrowLeft, AiOutlineUser,AiOutlineCamera} from "react-icons/ai"
 import { RiLockPasswordLine } from "react-icons/ri"
@@ -11,9 +12,9 @@ export function ProFile() {
   return (
     <Container>
       <header>
-        <a href="#">
+        <Link to= "/">
           <AiOutlineArrowLeft />
-        </a>
+        </Link>
       </header>
 
       <Form>

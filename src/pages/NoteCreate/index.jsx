@@ -5,18 +5,19 @@ import { Button } from '../../components/Button'
 import { Textarea } from '../../components/Textarea'
 import { NoteItem } from '../../components/NoteItem'
 import { Section } from '../../components/Section'
-
+import { Link } from 'react-router-dom'
 export function NoteCreate() {
 
 
   return (
     <Container>
-      <Header></Header>
+      <Header
+      ></Header>
       <main>
       <Form>
         <header>
           <h1>Criar Nota</h1>
-          <a href="#">Voltar</a>
+          <Link to="/">Voltar</Link>
         </header>
 
         <label htmlFor="title" className="sr-only">Title</label>
