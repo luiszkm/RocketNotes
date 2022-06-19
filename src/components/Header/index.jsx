@@ -1,20 +1,23 @@
-import { RiShutDownLine} from 'react-icons/ri';
-import { Container, Profile, Logout} from "./style";
-export function Header (){
+import { RiShutDownLine } from 'react-icons/ri';
+import { useAuth } from "../../hooks/auth"
+import { Container, Profile, Logout } from "./style";
 
+export function Header() {
 
-  return(
+  const { signOut } = useAuth()
+
+  return (
 
     <Container>
-      <Profile to ="/profile">
+      <Profile to="/profile">
         <img src="https://github.com/luiszkm.png" alt="Foto do usuário " />
         <div>
           <span>Bem Vindo</span>
           <strong>Luis Murilo</strong>
         </div>
       </Profile>
-      <Logout>
-      <RiShutDownLine/>
+      <Logout onClick={signOut}>
+        <RiShutDownLine />
       </Logout>
     </Container>
   )
