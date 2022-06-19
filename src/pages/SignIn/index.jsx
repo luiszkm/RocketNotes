@@ -1,9 +1,9 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineMail } from "react-icons/ai"
 import { RiLockPasswordLine } from "react-icons/ri"
+import { useState } from "react";
 
-import { MyContext } from "../../myContext";
+import { useAuth } from "../../hooks/auth"
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
@@ -11,10 +11,15 @@ import { Button } from "../../components/Button";
 import { Container, Form, Background } from "./styles";
 
 export function SignIn() {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
-  const data = useContext(MyContext)
-  console.log(data);
-  
+  const { signIn } = useAuth()
+ 
+  function handleSignIn() {
+    signIn({email, password})
+  }
+
   return (
     <Container>
       <Form>
@@ -28,6 +33,7 @@ export function SignIn() {
           placeholder="E-mail"
           type="text"
           id="login"
+          onChange={e => setEmail(e.target.value)}
         />
         <label htmlFor="password" className="sr-only">Senha</label>
         <Input
@@ -35,9 +41,11 @@ export function SignIn() {
           placeholder="E-mail"
           type="password"
           id="password"
+          onChange={e => setPassword(e.target.value)}
         />
 
-        <Button title={"Entrar"} />
+        <Button title={"Entrar"}
+          onClick={handleSignIn} />
 
         <Link to="/signup">
           Criar Conta
