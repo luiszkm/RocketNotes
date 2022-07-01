@@ -13,7 +13,7 @@ import { Section } from '../../components/Section'
 
 import { Container, Form } from './styles'
 
-export function NoteCreate() {
+export function New() {
   const [title, setTitle] = useState("")
   const [descriptions, setDescriptions] = useState("")
 
@@ -130,7 +130,7 @@ export function NoteCreate() {
 
           <Button
             title="Salvar"
-            onClick={handleNewNote} 
+            onClick={()=>{handleNewNote()}} 
           />
         </Form>
       </main>
