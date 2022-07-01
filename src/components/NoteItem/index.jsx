@@ -1,7 +1,7 @@
 import {Container} from './styles'
 import {AiOutlineClose, AiOutlinePlus} from 'react-icons/ai'
 
-export function NoteItem ({isNew ,value, onClick, ...rest}) {
+export function NoteItem ({isNew = false ,value, onClick, ...rest}) {
 
 return (
   <Container isNew= {isNew}>
@@ -14,7 +14,8 @@ return (
     <button 
     type='button'
     onClick={onClick}
-    className= { isNew?"button-add":"button-delete"}>
+    className= { isNew?"button-add":"button-delete"}
+    >
 
     {isNew ? <AiOutlinePlus />:<AiOutlineClose />}
 

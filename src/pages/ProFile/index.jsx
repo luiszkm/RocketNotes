@@ -5,6 +5,9 @@ import { useAuth } from '../../hooks/auth'
 
 import { AiOutlineMail, AiOutlineArrowLeft, AiOutlineUser, AiOutlineCamera } from "react-icons/ai"
 import { RiLockPasswordLine } from "react-icons/ri"
+import { api } from '../../services/api';
+
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg"
 
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
@@ -20,7 +23,9 @@ export function ProFile() {
   const [passwordNew, setPasswordNew] = useState()
   const [passwordOld, setPasswordOld] = useState()
 
-  const [avatar, setAvatar] = useState(user.avatar)
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
+
+  const [avatar, setAvatar] = useState(avatarUrl)
   const [avatarFile, setAvatarFile] = useState(null)
 
   async function handleUpdate() {
@@ -31,11 +36,11 @@ export function ProFile() {
       old_password: passwordOld
     }
 
-    await updateProfile({ user , avatarFile })
+    await updateProfile({ user, avatarFile })
   }
 
-  function handleChangeAvatar(event){
-    const file= event.target.files[0];
+  function handleChangeAvatar(event) {
+    const file = event.target.files[0];
     setAvatarFile(file);
 
     const imagePreview = URL.createObjectURL(file)
@@ -63,7 +68,7 @@ export function ProFile() {
               type="file"
               id="avatar"
               className="sr-only"
-              onChange= {handleChangeAvatar} />
+              onChange={handleChangeAvatar} />
           </label>
         </Avatar>
 
