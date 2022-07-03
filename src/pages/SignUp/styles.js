@@ -63,7 +63,12 @@ export const Form = styled.form`
   border-width: 0;
   clip: rect(0, 0, 0, 0);
 }
- 
+@media(max-width:768px){
+    padding: 0 5rem;
+  }
+  @media(max-width:360px){
+    padding:  2rem;
+  }
 `
 export const Background = styled.div`
   flex: 1;

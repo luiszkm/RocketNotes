@@ -15,6 +15,7 @@ export const Container = styled.div`
    padding: 6.4rem 0;
    overflow-y:scroll hidden;
  }
+
 `;
 
 export const Links = styled.ul`
@@ -26,6 +27,7 @@ export const Links = styled.ul`
     color: ${({ theme }) => theme.COLORS.WHITE};
   }
 }
+
 `;
 
 export const Content = styled.div`
@@ -44,13 +46,13 @@ export const Content = styled.div`
     font-weight: 500;
     line-height: 4.7rem;
     padding-top: 6.4rem;
-    
-    
-
   }
   >p{
     text-align: justify;
     font-size: 1.6rem;
     margin-top: 1.6rem;
+  }
+  @media(max-width:768px){
+    padding: 0 2rem;
   }
 `

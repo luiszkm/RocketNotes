@@ -18,6 +18,9 @@ export const Container = styled.div`
       font-size: 2.4rem;
       color:${({ theme }) => theme.COLORS.GRAY_100};
     }
+    @media(max-width:768px){
+    padding: 0 2rem;
+  }
   }
 
 

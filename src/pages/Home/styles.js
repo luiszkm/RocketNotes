@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
   width: 100%;
@@ -17,6 +17,21 @@ export const Container = styled.div`
 
   background-color:${({ theme }) => theme.COLORS.BACKGROUND_800};
 
+  
+  @media (max-width:600px) {
+    padding: 2rem;
+    grid-template-columns:auto;
+    grid-template-rows: 10rem 7rem 4rem auto auto 6.4rem ;
+    grid-template-areas:
+  " header"
+  " search"
+  " brand"
+  " menu"
+  " content"
+  " newnote"
+  ;
+  }
+   
 `
 
 export const Brand = styled.div`
@@ -29,6 +44,9 @@ export const Brand = styled.div`
 >h1{
   font-size: 2.4rem;
   color: ${({ theme }) => theme.COLORS.ORANGE};
+}
+@media (max-width:600px) {
+  cursor: pointer;
 }
 `
 
@@ -43,20 +61,39 @@ export const Menu = styled.ul`
   >li{
     margin-bottom: 2.4rem;
   }
+  @media(max-width:600px){
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 0;
+    
+    >li{
+    margin-bottom: 0;
+    text-align: center;
+   }
+    
+  }
+ 
 `
 
 export const Search = styled.div`
  grid-area:search;
  padding:  6.4rem 6.4rem 0;
 
-
+ @media(max-width:768px){
+    padding: 0;
+  }
+ 
 `
 
 export const Content = styled.div`
  grid-area:content;
  padding:0 6.4rem;
   overflow-y:auto;
-
+  @media(max-width:768px){
+    padding: 0;
+  }
+  
 `
 
 export const NewNote = styled(Link)`
