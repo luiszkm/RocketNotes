@@ -1,20 +1,20 @@
 import { Container } from "./styles";
-import {Tag} from "../Tag"
+import { Tag } from "../Tag"
 
-export function Note ({ data, ...rest}){
+export function Note({ data, ...rest }) {
 
+  return (
+    <Container {...rest} >
 
-
-  return(
-    <Container {...rest}>
       <h1>{data.title}</h1>
-      {
-        data.tags &&
+
+      {data.tags && (
         <footer>
-          {data.tags.map(tags => <Tag title={tags.name}key = {tags.title}/> )}    
-            
+          {data.tags.map((tag) => (
+            <Tag title={tag.name} key={tag.id} />
+          ))}
         </footer>
-      }
+      )}
     </Container>
   )
 }

@@ -1,48 +1,100 @@
-import { Container, Links, Content } from "./styles"
+import { useParams, useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+
+import { api } from "../../services/api"
 
 import { Button } from "../../components/Button"
 import { Header } from "../../components/Header"
 import { Section } from "../../components/Section"
 import { ButtonText } from "../../components/ButtonText"
 import { Tag } from "../../components/Tag"
-export function Details() {
 
+import { Container, Links, Content } from "./styles"
+
+export function Details() {
+  const [data, setData] = useState(null)
+
+  const params = useParams()
+  const navigate = useNavigate()
+
+  function handleBack() {
+    navigate("/")
+
+  }
+  async function handleRemove() {
+    const confirm = window.confirm("deseja realmente remover a nota?")
+
+    if (confirm) {
+      await api.delete(`/notes/${params.id}`)
+      navigate("/")
+    }
+  }
+
+  useEffect(() => {
+    async function fetchNote() {
+      const response = await api.get(`/notes/${params.id}`)
+      setData(response.data)
+    }
+    fetchNote()
+  }, [])
 
   return (
     <Container>
       <Header />
-      <main>
-        <Content>
+      {
+        data &&
+        <main>
+          <Content>
 
-          <ButtonText title="Excluir nota" />
-          
-          <h1>Introdução ao React</h1>
+            <ButtonText
+              onClick={handleRemove}
+              title="Excluir nota" />
 
-          <p>
-             ipsum dolor sit amet consectetur, adipisicing elit. Repellat facere aliquam, non error eligendi saepe voluptates, dolores nobis temporibus voluptatum illo aut distinctio delectus alias perspiciatis. Ratione hic nesciunt architecto.
+            <h1>
+              {data.title}
+            </h1>
 
-          </p>
+            <p>
+              {data.descriptions}
+            </p>
 
-          <Section title="Links uteis">
-            <Links>
-              <li>
-                <a href="#">https://github.com/luiszkm</a>
-              </li>
-              <li>
-                <a href="#">https://github.com/luiszkm</a>
-              </li>
-            </Links>
+            {
+              data.links &&
+              <Section title="Links uteis">
+                <Links>
+                  {
+                    data.links.map(link => (
+                      <li key={String(link.id)}>
+                        <a href={link.url} target="_blank">
+                          {link.url}
+                        </a>
+                      </li>
+                    ))
+                  }
 
-          </Section>
+                </Links>
 
-          <Section title="Marcadores">
-            <Tag title="Express" />
-            <Tag title="Node" />
+              </Section>
+            }
 
-          </Section>
-          <Button title="Voltar" />
-        </Content>
-      </main>
+            {
+              data.links &&
+              <Section title="Marcadores">
+                {
+                  data.tags.map(tag => (
+                    <Tag key={String(tag.id)}
+                      title={tag.name} />
+                  ))
+                }
+
+              </Section>
+            }
+            <Button
+              title="Voltar"
+              onClick={handleBack} />
+          </Content>
+        </main>
+      }
     </Container>
   )
 }

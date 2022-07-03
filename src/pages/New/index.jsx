@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { api } from '../../services/api'
 
@@ -47,8 +47,19 @@ export function New() {
   }
 
 
-   async function handleNewNote() {
-    await api.post("/notes",{
+  async function handleNewNote() {
+    if (!title) {
+      return alert("Digite um titulo para a nota ")
+    }
+    if (newLink) {
+      return alert("clique no '+' para adicionar ao link ou deixe-o vazio ")
+    }
+    if (newTag) {
+      return alert("clique no '+' para adicionar a tag ou deixe-o vazio ")
+    }
+    
+
+    await api.post("/notes", {
       title,
       descriptions,
       tags,
@@ -62,7 +73,7 @@ export function New() {
   return (
     <Container>
       <Header />
-     
+
       <main>
         <Form>
           <header>
@@ -130,7 +141,7 @@ export function New() {
 
           <Button
             title="Salvar"
-            onClick={()=>{handleNewNote()}} 
+            onClick={() => { handleNewNote() }}
           />
         </Form>
       </main>
