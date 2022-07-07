@@ -33,7 +33,7 @@ Será necessário utilizar npm install
 
 ## Demonstração
 
-Insira um gif ou um link de alguma demonstração
+<img src="./src/assets/Rocket-Notes-Pessoal-—-Microsoft_-Edge-2022-07-07-20-10-49.gif">
 
 
 Clique no link abaixo para ir ao porjeto:
