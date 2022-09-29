@@ -3,13 +3,15 @@
 Aplicação para quardar links uteis.
 
 ## Instalação
-Será necessário utilizar npm install
+Será necessário utilizar npm install para desenvolvimento
 
+## API
+https://github.com/luiszkm/API_RocketNotes    
 
-    
 ## Stack utilizada
 
 **Front-end:** ReactJs, HTML, CSS, JavaScript
+**Back-End** NodeJs Express , DB (SQL ,SqLite, Knex), JWT
 
 ## Autores
 
